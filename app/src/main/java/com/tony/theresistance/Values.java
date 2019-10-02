@@ -88,6 +88,12 @@ public class Values extends Application {
         }
         Collections.shuffle(Arrays.asList(arr));
 
+        playerList.clear();
+
+        for(int i=0; i<playerNumber; i++){
+            Player player = new Player();
+            playerList.add(player);
+        }
 
     }
 }

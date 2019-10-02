@@ -236,7 +236,8 @@
             android:layout_gravity="center"
             android:text="START"
             android:layout_margin="10dp"
-            android:background="@color/lightGray"
+            android:background="@color/colorComplementaryWhite"
+            android:textColor="@color/colorMidnightBlack"
             />
 
     </LinearLayout>
