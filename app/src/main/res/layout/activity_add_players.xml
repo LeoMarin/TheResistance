@@ -145,21 +145,22 @@
             android:textColor="@color/colorComplementaryWhite"
             android:textSize="25sp"
             android:visibility="gone" />
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonNightPhase"
+        android:id="@+id/revealButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/colorComplementaryWhite"
         android:enabled="false"
-        android:text="Start night phase"
+        android:text="REVEAL"
         android:textColor="@color/colorMidnightBlack"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <EditText
         android:id="@+id/editText"
@@ -168,7 +169,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Name"
-        android:inputType="textVisiblePassword"
+        android:inputType="textWebPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonAddPlayer" />

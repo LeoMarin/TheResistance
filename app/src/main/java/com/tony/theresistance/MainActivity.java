@@ -9,9 +9,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonAssassin;
@@ -92,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
                     values.selectedRoles.remove(Values.Role.BODYGUARD);
                     values.selectedRoles.remove(Values.Role.FALSE_COMMANDER);
                 }
-                break;
+                break;/*
             case R.id.checkBoxInquisitor:
                 if (checked)
                     values.selectedRoles.add(Values.Role.INQUISITOR);
                 else
                     values.selectedRoles.remove(Values.Role.INQUISITOR);
-                break;
+                break;*/
             case R.id.checkBoxBlind:
                 if (checked)
                     values.selectedRoles.add(Values.Role.BLIND_SPY);

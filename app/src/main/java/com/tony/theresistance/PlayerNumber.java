@@ -67,7 +67,6 @@ public class PlayerNumber extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     private void setPlayerNumbers(){
