@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="@+id/roleImageView"
         app:layout_constraintTop_toTopOf="@+id/roleImageView"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/spy_circle" />
+        app:srcCompat="@drawable/role_resistance" />
 
     <ImageView
         android:id="@+id/roleImageView"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPlayerName"
         app:layout_constraintVertical_bias="0.309"
-        app:srcCompat="@drawable/resistance_circle" />
+        app:srcCompat="@drawable/role_unknown" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,6 @@ public class Reveal extends AppCompatActivity {
     private Button nextPlayerButton;
     private TextView playerNameTextView;
 
-    private Animation animation;
     private ImageView roleImageView;
     private ImageView revealedImageView;
 
@@ -57,6 +56,8 @@ public class Reveal extends AppCompatActivity {
 
         playerNameTextView.setText(values.playerList.get(0).getName());
 
+        setRoleImage(0);
+
         nextPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,12 +65,16 @@ public class Reveal extends AppCompatActivity {
                     revealedPlayers++;
                     playerNameTextView.setText(values.playerList.get(revealedPlayers).getName());
                     nextPlayerButton.setEnabled(false);
-                    //TODO: change image according to role
+                    roleImageView.bringToFront();
+                    roleImageView.setRotation(0);
+                    setRoleImage(revealedPlayers);
+                    ObjectAnimator.ofFloat(roleImageView, "rotationY", 0f, 0f).setDuration(0).start();
                     if(revealedPlayers == values.playerList.size()-1)
                         nextPlayerButton.setText("Start night phase");
                 }
                 else{
-                    //TODO: night phase start
+                    Intent intent = new Intent(getBaseContext(), Game.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -100,5 +105,35 @@ public class Reveal extends AppCompatActivity {
         }, 250);
     }
 
+    private void setRoleImage(int player){
+        Values.Role role = values.playerList.get(player).getRole();
+
+        switch (role){
+            case SPY:
+                revealedImageView.setImageResource(R.drawable.role_spy);
+                break;
+            case RESISTANCE:
+                revealedImageView.setImageResource(R.drawable.role_resistance);
+                break;
+            case DEEP_SPY:
+                revealedImageView.setImageResource(R.drawable.role_deep_spy);
+                break;
+            case BLIND_SPY:
+                revealedImageView.setImageResource(R.drawable.role_blind_spy);
+                break;
+            case BODYGUARD:
+                revealedImageView.setImageResource(R.drawable.role_bodyguard);
+                break;
+            case COMMANDER:
+                revealedImageView.setImageResource(R.drawable.role_commander);
+                break;
+            case FALSE_COMMANDER:
+                revealedImageView.setImageResource(R.drawable.role_false_commander);
+                break;
+            case CHAOTIC_SPY:
+                revealedImageView.setImageResource(R.drawable.role_chaotic_sply);
+                break;
+        }
+    }
 
 }
