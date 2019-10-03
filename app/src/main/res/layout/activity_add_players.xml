@@ -156,7 +156,7 @@
         android:enabled="false"
         android:text="REVEAL"
         android:textColor="@color/colorMidnightBlack"
-        android:textSize="20sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
