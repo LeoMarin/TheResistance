@@ -31,7 +31,7 @@ public class AddPlayers extends AppCompatActivity {
         setContentView(R.layout.activity_add_players);
 
         Intent intent = getIntent();
-        playerNumber = intent.getIntExtra(Values.PLAYER_NUMBER_EXTRA, 5);
+        playerNumber = intent.getIntExtra(Values.PLAYER_NUMBER_EXTRA, 8);
 
         values = Values.getInstance();
 
@@ -83,7 +83,8 @@ public class AddPlayers extends AppCompatActivity {
         revealButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getBaseContext(), Reveal.class);
+                startActivity(intent);
             }
         });
 

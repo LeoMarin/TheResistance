@@ -40,100 +40,99 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.073" />
 
+
     <Button
         android:id="@+id/buttonAssassin"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView"
-        android:layout_marginEnd="107dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="109dp"
         android:background="@color/colorComplementaryWhite"
+        android:enabled="true"
         android:fontFamily="@font/allerta_stencil"
         android:text="Assassin"
         android:textColor="@color/colorMidnightBlack"
-        android:textSize="25sp"
-        android:enabled="true"/>
-
-
-
-    <Button
-        android:id="@+id/buttonDefector"
-        android:layout_width="140dp"
-        android:height="60dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/buttonAssassin"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
-        android:text="Defector"
-        android:textColor="@color/colorMidnightBlack"
-        android:background="@color/colorComplementaryWhite"
-        android:textSize="18sp"
-        android:fontFamily="@font/allerta_stencil"
-        android:enabled="false"/>
-
-    <Button
-        android:id="@+id/buttonReverser"
-        android:layout_width="140dp"
-        android:height="60dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/buttonDefector"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
-        android:text="Reverser"
-        android:textColor="@color/colorMidnightBlack"
-        android:background="@color/colorComplementaryWhite"
-        android:textSize="18sp"
-        android:fontFamily="@font/allerta_stencil"
-        android:enabled="false"/>
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/buttonTrapper"
         android:layout_width="140dp"
-        android:height="60dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_height="60dp"
         android:layout_below="@+id/buttonAssassin"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="52dp"
+        android:height="60dp"
+        android:background="@color/colorComplementaryWhite"
+        android:enabled="false"
+        android:fontFamily="@font/allerta_stencil"
         android:text="Trapper"
         android:textColor="@color/colorMidnightBlack"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonDefector"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/buttonAssassin"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="30dp"
+        android:height="60dp"
         android:background="@color/colorComplementaryWhite"
-        android:textSize="18sp"
+        android:enabled="false"
         android:fontFamily="@font/allerta_stencil"
-        android:enabled="false"/>
+        android:text="Defector"
+        android:textColor="@color/colorMidnightBlack"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/buttonHunter"
         android:layout_width="140dp"
-        android:height="60dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_height="60dp"
         android:layout_below="@+id/buttonTrapper"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="52dp"
+        android:height="60dp"
+        android:background="@color/colorComplementaryWhite"
+        android:enabled="false"
+        android:fontFamily="@font/allerta_stencil"
         android:text="Hunter"
         android:textColor="@color/colorMidnightBlack"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonReverser"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/buttonDefector"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="61dp"
+        android:height="60dp"
         android:background="@color/colorComplementaryWhite"
-        android:textSize="18sp"
+        android:enabled="false"
         android:fontFamily="@font/allerta_stencil"
-        android:enabled="false"/>
+        android:text="Reverser"
+        android:textColor="@color/colorMidnightBlack"
+        android:textSize="18sp" />
 
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView"
-        android:layout_marginEnd="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="-62dp"
+        android:layout_marginEnd="30dp"
         android:background="#ffffff"
         android:orientation="vertical"
         android:visibility="gone">
@@ -158,9 +157,8 @@
                 android:id="@+id/buttonExit"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:text="X"
                 android:background="@color/colorMidnightBlack"
-                />
+                android:text="X" />
         </LinearLayout>
 
         <CheckBox
@@ -169,10 +167,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:buttonTint="@color/colorMidnightBlack"
+            android:onClick="onCheckboxClicked"
             android:text="Commander and Assassin"
             android:textColor="@color/colorMidnightBlack"
-            android:textSize="20sp"
-            android:onClick="onCheckboxClicked" />
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/checkBoxBodyguard"
@@ -180,10 +178,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:buttonTint="@color/colorMidnightBlack"
+            android:onClick="onCheckboxClicked"
             android:text="Bodyguard and False commander"
             android:textColor="@color/colorMidnightBlack"
-            android:textSize="20sp"
-            android:onClick="onCheckboxClicked" />
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/checkBoxInquisitor"
@@ -191,10 +189,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:buttonTint="@color/colorMidnightBlack"
+            android:onClick="onCheckboxClicked"
             android:text="Inquisitor"
             android:textColor="@color/colorMidnightBlack"
-            android:textSize="20sp"
-            android:onClick="onCheckboxClicked" />
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/checkBoxBlind"
@@ -202,10 +200,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:buttonTint="@color/colorMidnightBlack"
+            android:onClick="onCheckboxClicked"
             android:text="Blind spy"
             android:textColor="@color/colorMidnightBlack"
-            android:textSize="20sp"
-            android:onClick="onCheckboxClicked" />
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/checkBoxDeep"
@@ -213,10 +211,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:buttonTint="@color/colorMidnightBlack"
+            android:onClick="onCheckboxClicked"
             android:text="Deep spy"
             android:textColor="@color/colorMidnightBlack"
-            android:textSize="20sp"
-            android:onClick="onCheckboxClicked" />
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/checkBoxChaoticSpy"
@@ -224,21 +222,20 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:buttonTint="@color/colorMidnightBlack"
+            android:onClick="onCheckboxClicked"
             android:text="Chaotic spy"
             android:textColor="@color/colorMidnightBlack"
-            android:textSize="20sp"
-            android:onClick="onCheckboxClicked"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/buttonStart"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:text="START"
             android:layout_margin="10dp"
             android:background="@color/colorComplementaryWhite"
-            android:textColor="@color/colorMidnightBlack"
-            />
+            android:text="START"
+            android:textColor="@color/colorMidnightBlack" />
 
     </LinearLayout>
 

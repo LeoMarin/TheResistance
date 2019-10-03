@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddPlayers"></activity>
+        <activity android:name=".Game"></activity>
+        <activity android:name=".Reveal" />
+        <activity android:name=".AddPlayers" />
         <activity android:name=".PlayerNumber" />
         <activity android:name=".MainActivity">
             <intent-filter>
