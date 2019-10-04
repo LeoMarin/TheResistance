@@ -83,6 +83,7 @@ public class AddPlayers extends AppCompatActivity {
         revealButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                values.generateRoles();
                 Intent intent = new Intent(getBaseContext(), Reveal.class);
                 startActivity(intent);
             }

@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 
 public class Game extends AppCompatActivity {
 
     private SectionsStatePagerAdapter sectionsStatePagerAdapter;
-    private ViewPager viewPager;
+    private CustomViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

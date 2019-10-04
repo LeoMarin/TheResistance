@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewMission" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewHint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -47,14 +47,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewMissionLeader" />
 
     <LinearLayout
+        android:id="@+id/selectPlayersLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintVertical_bias="0.285">
 
         <CheckBox
             android:id="@+id/checkBox"
@@ -62,7 +64,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="0"/>
 
         <CheckBox
             android:id="@+id/checkBox2"
@@ -70,7 +73,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="1" />
 
         <CheckBox
             android:id="@+id/checkBox3"
@@ -78,7 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="2" />
 
         <CheckBox
             android:id="@+id/checkBox4"
@@ -86,7 +91,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="3" />
 
         <CheckBox
             android:id="@+id/checkBox5"
@@ -94,7 +100,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="4" />
 
         <CheckBox
             android:id="@+id/checkBox6"
@@ -102,7 +109,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="5" />
 
         <CheckBox
             android:id="@+id/checkBox7"
@@ -110,7 +118,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="6" />
 
         <CheckBox
             android:id="@+id/checkBox8"
@@ -118,7 +127,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="7" />
 
         <CheckBox
             android:id="@+id/checkBox9"
@@ -126,7 +136,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="8" />
 
         <CheckBox
             android:id="@+id/checkBox10"
@@ -134,7 +145,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Player name"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:tag="9" />
+
     </LinearLayout>
 
 
@@ -150,6 +163,124 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8A000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/majorityVote"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/lightGray"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textViewSelectedPlayers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorComplementaryWhite"
+                android:gravity="clip_horizontal|center"
+                android:padding="5dp"
+                android:text="Selected Players:"
+                android:textColor="@color/colorMidnightBlack"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/textViewSelectedPlayer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Selected player"
+                android:textColor="@color/colorComplementaryWhite"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewSelectedPlayer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Selected player"
+                android:textColor="@color/colorComplementaryWhite"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewSelectedPlayer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Selected player"
+                android:textColor="@color/colorComplementaryWhite"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewSelectedPlayer4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Selected player"
+                android:textColor="@color/colorComplementaryWhite"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewSelectedPlayer5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Selected player"
+                android:textColor="@color/colorComplementaryWhite"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAprove"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Majority approves?"
+                android:textColor="@color/colorMidnightBlack"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="no" />
+
+                <Button
+                    android:id="@+id/buttonYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="yes" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 

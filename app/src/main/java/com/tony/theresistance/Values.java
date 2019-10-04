@@ -17,6 +17,7 @@ public class Values extends Application {
         playerList = new ArrayList<>();
         selectedRoles = new ArrayList<>();
         playableRoles = new ArrayList<>();
+        gameState = new GameState();
     }
 
     public static Values getInstance() {
@@ -39,6 +40,23 @@ public class Values extends Application {
         CHAOTIC_SPY
     }
 
+    class GameState{
+        public int numPlayers;
+        public int numResistance;
+        public int numSpies;
+        public int currentMission;
+        public int numSpyWins;
+        public int numResistanceWins;
+        public int currentPlayer;
+        public int numNeededVotes;
+        public int numNeededPlayers;
+        public int numFailedVotes;
+        public int numVotes;
+        public int numPassVotes;
+        public int numSabotageVotes;
+        public int[] wins;
+        public List<Player> selectedPlayers;
+    }
 
     class Player{
         private String name;
@@ -83,6 +101,49 @@ public class Values extends Application {
 
     public List<Role> selectedRoles;
     public List<Role> playableRoles;
+    public GameState gameState;
+
+    public void restGameState() {
+        gameState.numVotes = 0;
+        gameState.numPassVotes = 0;
+        gameState.numSabotageVotes = 0;
+        gameState.numFailedVotes = 0;
+        gameState.numNeededVotes = 1;
+        gameState.numNeededPlayers = 3;
+        gameState.currentMission = 0;
+        gameState.numSpyWins = 0;
+        gameState.numResistanceWins = 0;
+        gameState.numPlayers = playerList.size();
+        gameState.wins = new int[] {0, 0, 0, 0, 0};
+        gameState.selectedPlayers = new ArrayList<>();
+        gameState.currentPlayer = new Random().nextInt(gameState.numPlayers);
+        switch (playerList.size()){
+            case 5:
+                gameState.numResistance = 3;
+                gameState.numSpies = 2;
+                break;
+            case 6:
+                gameState.numResistance = 4;
+                gameState.numSpies = 2;
+                break;
+            case 7:
+                gameState.numResistance = 4;
+                gameState.numSpies = 3;
+                break;
+            case 8:
+                gameState.numResistance = 5;
+                gameState.numSpies = 3;
+                break;
+            case 9:
+                gameState.numResistance = 6;
+                gameState.numSpies = 3;
+                break;
+            case 10:
+                gameState.numResistance = 6;
+                gameState.numSpies = 4;
+                break;
+        }
+    }
 
     public void generatePlayers(int playerNumber){
         playerList.clear();
@@ -92,13 +153,14 @@ public class Values extends Application {
             playerList.add(player);
         }
 
-        generateRoles(playerNumber);
+        generateRoles();
     }
 
-    private void generateRoles(int playerNumber){
+    public void generateRoles(){
 
         playableRoles.clear();
 
+        int playerNumber = playerList.size();
         int spyNumber = 0;
         int resistanceNumber = 0;
 
@@ -174,5 +236,14 @@ public class Values extends Application {
         for(int i=0; i<playerNumber; i++){
             playerList.get(arr[i]).setRole(playableRoles.get(i));
         }
+        for(Player player : playerList){
+            if(player.role == Role.RESISTANCE || player.role == Role.COMMANDER)
+                player.setIsEvil(false);
+            else
+                player.setIsEvil(true);
+        }
     }
+
 }
+
+

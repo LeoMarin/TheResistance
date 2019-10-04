@@ -1,6 +1,7 @@
 package com.tony.theresistance;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -22,7 +23,10 @@ public class Reveal extends AppCompatActivity {
     private Values values;
 
     private Button nextPlayerButton;
+    private Button nightPhaseButton;
     private TextView playerNameTextView;
+    private View nightPhaseLayout;
+    private View revealLayout;
 
     private ImageView roleImageView;
     private ImageView revealedImageView;
@@ -35,9 +39,13 @@ public class Reveal extends AppCompatActivity {
         values = Values.getInstance();
 
         nextPlayerButton = findViewById(R.id.buttonNextPlayer);
+        nightPhaseButton = findViewById(R.id.buttonNightPhase);
 
         roleImageView = findViewById(R.id.roleImageView);
         revealedImageView = findViewById(R.id.revealedImageView);
+
+        nightPhaseLayout = findViewById(R.id.nightPhaseLayout);
+        revealLayout = findViewById(R.id.revealLayout);
 
         playerNameTextView = findViewById(R.id.textViewPlayerName);
 
@@ -73,23 +81,33 @@ public class Reveal extends AppCompatActivity {
                         nextPlayerButton.setText("Start night phase");
                 }
                 else{
-                    Intent intent = new Intent(getBaseContext(), Game.class);
-                    startActivity(intent);
+                    values.restGameState();
+                    revealLayout.setVisibility(View.GONE);
+                    nightPhaseLayout.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+
+        nightPhaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), Game.class);
+                startActivity(intent);
             }
         });
     }
 
     private void rotateAnimation(ImageView shown, final ImageView hidden) {
 
+        int delay = 400;
         nextPlayerButton.setEnabled(true);
 
         ObjectAnimator animation = ObjectAnimator.ofFloat(shown, "rotationY", 0.0f, 180f);
-        animation.setDuration(500);
+        animation.setDuration(delay);
         animation.setInterpolator(new AccelerateDecelerateInterpolator());
 
         ObjectAnimator animation1 = ObjectAnimator.ofFloat(hidden, "rotationY", 180f, 360f);
-        animation1.setDuration(500);
+        animation1.setDuration(delay);
         animation1.setInterpolator(new AccelerateDecelerateInterpolator());
 
 
@@ -102,10 +120,10 @@ public class Reveal extends AppCompatActivity {
             public void run() {
                 hidden.bringToFront();
             }
-        }, 250);
+        }, delay/2);
     }
 
-    private void setRoleImage(int player){
+    private void setRoleImage(int player){/*
         Values.Role role = values.playerList.get(player).getRole();
 
         switch (role){
@@ -133,7 +151,7 @@ public class Reveal extends AppCompatActivity {
             case CHAOTIC_SPY:
                 revealedImageView.setImageResource(R.drawable.role_chaotic_sply);
                 break;
-        }
+        }*/
     }
 
 }

@@ -8,7 +8,7 @@
     android:keepScreenOn="true"
     android:background="@color/colorMidnightBlack">
 
-    <androidx.viewpager.widget.ViewPager
+    <com.tony.theresistance.CustomViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/viewPager"/>
