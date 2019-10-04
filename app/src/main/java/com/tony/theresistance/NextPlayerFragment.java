@@ -1,6 +1,7 @@
 package com.tony.theresistance;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +39,12 @@ public class NextPlayerFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        textViewNextPlayer.setText(values.gameState.selectedPlayers.get(values.gameState.numVotes).getName());
-    }
+  @Override
+      public void setUserVisibleHint(boolean isVisibleToUser) {
+          super.setUserVisibleHint(isVisibleToUser);
+          if (isVisibleToUser) {
+              if(values.gameState.selectedPlayers.size() != 0)
+                  textViewNextPlayer.setText(values.gameState.selectedPlayers.get(values.gameState.numVotes).getName());
+          }
+      }
 }

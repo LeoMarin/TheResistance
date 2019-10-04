@@ -21,6 +21,7 @@ public class MissionFragment extends Fragment {
     private Button buttonNo;
     private LinearLayout linearLayout;
     private View overlay;
+    private LinearLayout majorityVote;
 
     private TextView textViewMission;
     private TextView textViewMissionLeader;
@@ -42,10 +43,12 @@ public class MissionFragment extends Fragment {
         textViewMission = view.findViewById(R.id.textViewMission);
         textViewMissionLeader = view.findViewById(R.id.textViewMissionLeader);
         textViewHint = view.findViewById(R.id.textViewHint);
+        majorityVote = view.findViewById(R.id.majorityVote);
+
 
         values = Values.getInstance();
         buttonLockIn.setEnabled(false);
-/*
+
         for(int i=0; i<10; i++){
             if(i>values.gameState.numPlayers-1)
                 linearLayout.getChildAt(i).setVisibility(View.GONE);
@@ -56,7 +59,6 @@ public class MissionFragment extends Fragment {
                     public void onClick(View view) {
                         int playerIndex = Integer.parseInt(view.getTag().toString());
                         boolean checked = ((CheckBox) view).isChecked();
-
                         if (checked) {
                             if (values.gameState.numNeededPlayers > values.gameState.selectedPlayers.size())
                                 values.gameState.selectedPlayers.add(values.playerList.get(playerIndex));
@@ -70,14 +72,23 @@ public class MissionFragment extends Fragment {
                             buttonLockIn.setEnabled(true);
                         else
                             buttonLockIn.setEnabled(false);
+
                     }
                 });
             }
         }
-*/
+
         buttonLockIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                for(int i=1; i<6; i++){
+                    if(i <= values.gameState.selectedPlayers.size())
+                        ((TextView)majorityVote.getChildAt(i)).setText(values.gameState.selectedPlayers.get(i-1).getName());
+                    else
+                        majorityVote.getChildAt(i).setVisibility(View.GONE);
+                }
+
                 overlay.bringToFront();
                 overlay.setVisibility(View.VISIBLE);
                 buttonLockIn.setEnabled(false);
@@ -116,10 +127,8 @@ public class MissionFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.e("mission", "onResume");
-        /*
         textViewHint.setText(String.format("Select %d players, %d spies needed to sabotage", values.gameState.numNeededPlayers, values.gameState.numNeededVotes));
         textViewMission.setText("Mission "+ (++values.gameState.currentMission));
-        textViewMissionLeader.setText(values.playerList.get(values.gameState.currentPlayer).getName());*/
+        textViewMissionLeader.setText(values.playerList.get(values.gameState.currentPlayer).getName());
     }
 }

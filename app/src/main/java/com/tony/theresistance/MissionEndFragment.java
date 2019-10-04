@@ -41,7 +41,6 @@ public class MissionEndFragment extends Fragment {
         buttonBeginMission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("mission", "start frg");
                 ((Game)getActivity()).setViewPager(1);
             }
         });
@@ -51,7 +50,7 @@ public class MissionEndFragment extends Fragment {
 
     @Override
     public void onResume() {
-        super.onResume();/*
+        super.onResume();
         textViewMissionNumber.setText("Mission "+ (++values.gameState.currentMission));
         textViewNextMissionLeader.setText(values.playerList.get(values.gameState.currentPlayer).getName());
         for(int i=0; i<5; i++){
@@ -66,6 +65,6 @@ public class MissionEndFragment extends Fragment {
                     ((ImageView)gameScoreLayout.getChildAt(i)).setImageResource(R.drawable.red_circle);
                     break;
             }
-        }*/
+        }
     }
 }

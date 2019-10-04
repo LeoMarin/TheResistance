@@ -123,7 +123,7 @@ public class Reveal extends AppCompatActivity {
         }, delay/2);
     }
 
-    private void setRoleImage(int player){/*
+    private void setRoleImage(int player){
         Values.Role role = values.playerList.get(player).getRole();
 
         switch (role){
@@ -151,7 +151,7 @@ public class Reveal extends AppCompatActivity {
             case CHAOTIC_SPY:
                 revealedImageView.setImageResource(R.drawable.role_chaotic_sply);
                 break;
-        }*/
+        }
     }
 
 }
