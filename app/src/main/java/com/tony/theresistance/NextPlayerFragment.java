@@ -40,11 +40,13 @@ public class NextPlayerFragment extends Fragment {
     }
 
   @Override
-      public void setUserVisibleHint(boolean isVisibleToUser) {
-          super.setUserVisibleHint(isVisibleToUser);
-          if (isVisibleToUser) {
-              if(values.gameState.selectedPlayers.size() != 0)
-                  textViewNextPlayer.setText(values.gameState.selectedPlayers.get(values.gameState.numVotes).getName());
+  public void setUserVisibleHint(boolean isVisibleToUser) {
+      super.setUserVisibleHint(isVisibleToUser);
+      if (isVisibleToUser) {
+          if(values.gameState.selectedPlayers.size() != 0){
+              values.gameState.currentVoter = values.gameState.selectedPlayers.get(values.gameState.numVotes);
+              textViewNextPlayer.setText(values.gameState.currentVoter.getName());
           }
       }
+  }
 }

@@ -28,6 +28,7 @@ public class Game extends AppCompatActivity {
         adapter.addFragment(new MissionFragment(), "MissionFragment");
         adapter.addFragment(new NextPlayerFragment(), "NextPlayerFragment");
         adapter.addFragment(new VoteFragment(), "VoteFragment");
+        adapter.addFragment(new RevealFragment(), "RevealFragment");
         viewPager.setAdapter(adapter);
     }
 

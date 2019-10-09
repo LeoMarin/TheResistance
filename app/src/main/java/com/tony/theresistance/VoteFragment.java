@@ -1,6 +1,8 @@
 package com.tony.theresistance;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,7 @@ public class VoteFragment extends Fragment {
     private Button buttonPass;
     private Button buttonSabotage;
 
-    private ImageView imageViewLeftButton;
-    private ImageView imageViewRightButton;
+    private Values values;
 
     @Nullable
     @Override
@@ -27,25 +28,56 @@ public class VoteFragment extends Fragment {
         buttonPass = view.findViewById(R.id.buttonPass);
         buttonSabotage = view.findViewById(R.id.buttonSabotage);
 
-        imageViewLeftButton = view.findViewById(R.id.imageViewLeftButton);
-        imageViewRightButton = view.findViewById(R.id.imageViewRightButton);
-
-        imageViewLeftButton.bringToFront();
-        imageViewRightButton.bringToFront();
+        values = Values.getInstance();
 
         buttonPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Game)getActivity()).setViewPager(0);
+                values.gameState.numVotes++;
+                values.gameState.numPassVotes++;
+                if(values.gameState.numVotes >= values.gameState.selectedPlayers.size()){
+                    ((Game)getActivity()).setViewPager(4);
+                }
+                else {
+                    ((Game)getActivity()).setViewPager(2);
+                }
             }
         });
         buttonSabotage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Game)getActivity()).setViewPager(0);
+                values.gameState.numVotes++;
+                if(values.gameState.currentVoter.getIsEvil())
+                    values.gameState.numSabotageVotes++;
+                else
+                    values.gameState.numPassVotes++;
+
+                if(values.gameState.numVotes >= values.gameState.selectedPlayers.size()){
+                    ((Game)getActivity()).setViewPager(4);
+                }
+                else {
+                    ((Game)getActivity()).setViewPager(2);
+                }
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            if(values.gameState.currentVoter.getIsEvil()){
+                Drawable top = getResources().getDrawable(R.drawable.spy_black);
+                buttonSabotage.setCompoundDrawablesWithIntrinsicBounds(null, top, null, null);
+                buttonSabotage.setText("SABOTAGE");
+            }
+            else{
+                Drawable top = getResources().getDrawable(R.drawable.resistance_black);
+                buttonSabotage.setCompoundDrawablesWithIntrinsicBounds(null, top, null, null);
+                buttonSabotage.setText("PASS");
+            }
+        }
     }
 }

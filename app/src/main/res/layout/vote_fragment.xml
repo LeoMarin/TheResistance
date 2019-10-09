@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
@@ -14,9 +15,13 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:background="@color/colorResistance"
+        android:drawableTop="@drawable/resistance_black"
+        android:paddingTop="200dp"
+        android:paddingBottom="200dp"
         android:text="Pass"
         android:textColor="@color/colorMidnightBlack"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -29,37 +34,18 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:background="@color/colorSpy"
+        android:drawableTop="@drawable/spy_black"
+        android:paddingTop="200dp"
+        android:paddingBottom="200dp"
         android:text="Sabotage"
         android:textColor="@color/colorMidnightBlack"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewLeftButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonPass"
-        app:layout_constraintEnd_toEndOf="@+id/buttonPass"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/buttonPass"
-        app:layout_constraintTop_toTopOf="@+id/buttonPass"
-        app:layout_constraintVertical_bias="0.3"
-        app:srcCompat="@drawable/resistance_black" />
-
-    <ImageView
-        android:id="@+id/imageViewRightButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonSabotage"
-        app:layout_constraintEnd_toEndOf="@+id/buttonSabotage"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/buttonSabotage"
-        app:layout_constraintTop_toTopOf="@+id/buttonSabotage"
-        app:layout_constraintVertical_bias="0.3"
-        app:srcCompat="@drawable/spy_black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

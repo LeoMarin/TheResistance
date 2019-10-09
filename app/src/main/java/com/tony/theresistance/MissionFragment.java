@@ -125,10 +125,17 @@ public class MissionFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        textViewHint.setText(String.format("Select %d players, %d spies needed to sabotage", values.gameState.numNeededPlayers, values.gameState.numNeededVotes));
-        textViewMission.setText("Mission "+ (++values.gameState.currentMission));
-        textViewMissionLeader.setText(values.playerList.get(values.gameState.currentPlayer).getName());
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            textViewHint.setText(String.format("Select %d players, %d spies needed to sabotage", values.gameState.numNeededPlayers, values.gameState.numNeededVotes));
+            textViewMission.setText("Mission " + (values.gameState.currentMission));
+            textViewMissionLeader.setText(values.playerList.get(values.gameState.currentPlayer).getName());
+
+
+            for(int i=0; i<10; i++)
+                ((CheckBox) linearLayout.getChildAt(i)).setChecked(false);
+            buttonLockIn.setEnabled(false);
+        }
     }
 }

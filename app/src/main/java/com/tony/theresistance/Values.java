@@ -54,8 +54,9 @@ public class Values extends Application {
         public int numVotes;
         public int numPassVotes;
         public int numSabotageVotes;
-        public int[] wins;
+        public int[] wins; // 0 - not played, 1 - resistance win, 2 - spy win
         public List<Player> selectedPlayers;
+        public Player currentVoter;
     }
 
     class Player{
@@ -143,6 +144,14 @@ public class Values extends Application {
                 gameState.numSpies = 4;
                 break;
         }
+    }
+
+    public void resetVote(){
+        gameState.numVotes = 0;
+        gameState.numPassVotes = 0;
+        gameState.numSabotageVotes = 0;
+        gameState.numFailedVotes = 0;
+        gameState.selectedPlayers.clear();
     }
 
     public void generatePlayers(int playerNumber){

@@ -99,7 +99,7 @@ public class Reveal extends AppCompatActivity {
 
     private void rotateAnimation(ImageView shown, final ImageView hidden) {
 
-        int delay = 400;
+        int delay = 200;
         nextPlayerButton.setEnabled(true);
 
         ObjectAnimator animation = ObjectAnimator.ofFloat(shown, "rotationY", 0.0f, 180f);
