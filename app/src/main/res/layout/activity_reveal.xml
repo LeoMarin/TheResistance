@@ -18,7 +18,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="60dp"
-            android:background="@color/colorComplementaryWhite"
+            android:background="@drawable/custom_button"
             android:enabled="false"
             android:text="NEXT PLAYER"
             android:textColor="@color/colorMidnightBlack"

@@ -24,7 +24,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
-        android:background="@color/colorComplementaryWhite"
+        android:background="@drawable/custom_button"
         android:text="Next mission"
         android:textColor="@color/colorMidnightBlack"
         android:textSize="22sp"

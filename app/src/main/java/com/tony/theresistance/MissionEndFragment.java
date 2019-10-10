@@ -55,6 +55,7 @@ public class MissionEndFragment extends Fragment {
 
         for(int i=0; i<5; i++){
             switch (values.gameState.wins[i]){
+                //TODO fix circle
                 case 0:
                     ((ImageView)gameScoreLayout.getChildAt(i)).setImageResource(R.drawable.white_circle);
                     break;

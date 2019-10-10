@@ -126,6 +126,8 @@ public class Reveal extends AppCompatActivity {
     private void setRoleImage(int player){
         Values.Role role = values.playerList.get(player).getRole();
 
+        //TODO fix ? circle
+
         switch (role){
             case SPY:
                 revealedImageView.setImageResource(R.drawable.role_spy);
