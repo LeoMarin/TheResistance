@@ -1,16 +1,23 @@
 package com.tony.theresistance;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 
@@ -21,6 +28,11 @@ public class RevealFragment extends Fragment {
     private TextView textViewRevealFragment;
     private TextView textViewPassedCount;
     private TextView textViewSabotagedCount;
+
+    private TextView textViewTimer;
+    private ConstraintLayout timerLayout;
+    private ConstraintLayout mainRevealLayout;
+    private ConstraintLayout colorLayout;
 
     private Button buttonRevealFragment;
 
@@ -35,6 +47,11 @@ public class RevealFragment extends Fragment {
         textViewPassedCount = view.findViewById(R.id.textViewPassedCount);
         textViewSabotagedCount = view.findViewById(R.id.textViewSabotagedCount);
         buttonRevealFragment = view.findViewById(R.id.buttonRevealFragment);
+
+        textViewTimer = view.findViewById(R.id.textViewTimer);
+        timerLayout = view.findViewById(R.id.timerLayout);
+        mainRevealLayout = view.findViewById(R.id.mainRevealLayout);
+        colorLayout = view.findViewById(R.id.colorLayout);
 
 
         buttonRevealFragment.setOnClickListener(new View.OnClickListener() {
@@ -81,18 +98,59 @@ public class RevealFragment extends Fragment {
             textViewPassedCount.setText(Integer.toString(values.gameState.numPassVotes));
             textViewSabotagedCount.setText(Integer.toString(values.gameState.numSabotageVotes));
 
-            //TODO slow reveal
-
             if(values.gameState.numSabotageVotes >= values.gameState.numNeededVotes){
                 textViewRevealFragment.setText("MISSION SABOTAGED");
                 values.gameState.wins[values.gameState.currentMission-1] = 2;
                 values.gameState.numSpyWins++;
+                colorLayout.setBackgroundColor(getResources().getColor(R.color.colorSpy));
             }
             else{
                 textViewRevealFragment.setText("MISSION PASSED");
                 values.gameState.wins[values.gameState.currentMission-1] = 1;
                 values.gameState.numResistanceWins++;
+                colorLayout.setBackgroundColor(getResources().getColor(R.color.colorResistance));
             }
+
+            colorLayout.setVisibility(View.GONE);
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    textViewTimer.setText("2");
+                }
+            }, 1000);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    textViewTimer.setText("1");
+                    Animation fadeInColor = new AlphaAnimation(0, 1);
+                    fadeInColor.setInterpolator(new DecelerateInterpolator()); //add this
+                    fadeInColor.setDuration(1000);
+
+                    colorLayout.setVisibility(View.VISIBLE);
+                    AnimationSet animation = new AnimationSet(false); //change to false
+                    animation.addAnimation(fadeInColor);
+                    colorLayout.setAnimation(animation);
+                }
+            }, 2000);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mainRevealLayout.bringToFront();
+                    Animation fadeIn = new AlphaAnimation(0, 1);
+                    fadeIn.setInterpolator(new DecelerateInterpolator()); //add this
+                    fadeIn.setDuration(1000);
+
+                    AnimationSet animation = new AnimationSet(false); //change to false
+                    animation.addAnimation(fadeIn);
+                    mainRevealLayout.setVisibility(View.VISIBLE);
+                    timerLayout.setVisibility(View.GONE);
+                    colorLayout.setVisibility(View.GONE);
+                    mainRevealLayout.setAnimation(animation);
+                }
+            }, 3000);
+
         }
     }
 }
