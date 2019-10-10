@@ -57,6 +57,8 @@ public class Values extends Application {
         public int[] wins; // 0 - not played, 1 - resistance win, 2 - spy win
         public List<Player> selectedPlayers;
         public Player currentVoter;
+        public Player assassinTarget;
+        public boolean resistanceWins;
     }
 
     class Player{
@@ -105,6 +107,9 @@ public class Values extends Application {
     public GameState gameState;
 
     public void restGameState() {
+        gameState.resistanceWins = false;
+        gameState.currentVoter = null;
+        gameState.assassinTarget = null;
         gameState.numVotes = 0;
         gameState.numPassVotes = 0;
         gameState.numSabotageVotes = 0;

@@ -1,5 +1,6 @@
 package com.tony.theresistance;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,9 +40,29 @@ public class RevealFragment extends Fragment {
         buttonRevealFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(values.gameState.numSpyWins == 3 || values.gameState.numResistanceWins == 3){
-                    //TODO: create endagme activity
+                if(values.gameState.numSpyWins == 3 ){
+                    values.gameState.resistanceWins = false;
+                    Intent intent = new Intent(getActivity(), EndGame.class);
+                    startActivity(intent);
                 }
+
+                else if(values.gameState.numResistanceWins == 3){
+                    boolean hasCommander = false;
+                    for(int i=0; i<values.playerList.size(); i++){
+                        if(values.playerList.get(i).getRole() == Values.Role.COMMANDER)
+                            hasCommander = true;
+                    }
+
+                    if(hasCommander) {
+                        Intent intent = new Intent(getActivity(), AssassinateCommander.class);
+                        startActivity(intent);
+                    } else {
+                        values.gameState.resistanceWins = true;
+                        Intent intent = new Intent(getActivity(), EndGame.class);
+                        startActivity(intent);
+                    }
+                }
+
                 else{
                     values.resetVote();
                     ((Game)getActivity()).setViewPager(0);
@@ -59,6 +80,8 @@ public class RevealFragment extends Fragment {
         if (isVisibleToUser) {
             textViewPassedCount.setText(Integer.toString(values.gameState.numPassVotes));
             textViewSabotagedCount.setText(Integer.toString(values.gameState.numSabotageVotes));
+
+            //TODO slow reveal
 
             if(values.gameState.numSabotageVotes >= values.gameState.numNeededVotes){
                 textViewRevealFragment.setText("MISSION SABOTAGED");

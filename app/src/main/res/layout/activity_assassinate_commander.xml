@@ -87,6 +87,41 @@
             android:text="Player name"
             android:textSize="20sp"
             android:tag="5" />
+        <CheckBox
+            android:id="@+id/checkBoxAssassin7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="6" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="7" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="8" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="9" />
 
     </LinearLayout>
 
