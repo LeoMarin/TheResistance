@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AssassinateCommander"
+    android:background="@color/colorMidnightBlack">
+
+    <TextView
+        android:id="@+id/textViewAssassin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Spies choose the commander"
+        android:textColor="@color/colorComplementaryWhite"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <LinearLayout
+        android:id="@+id/assassinateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.285">
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="0"/>
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="1" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="2" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="3" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="4" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAssassin6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Player name"
+            android:textSize="20sp"
+            android:tag="5" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/buttonAssassinate"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:background="@color/colorComplementaryWhite"
+        android:text="ASSASSINATE"
+        android:textColor="@color/colorMidnightBlack"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
