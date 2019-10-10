@@ -251,7 +251,7 @@ public class Values extends Application {
             playerList.get(arr[i]).setRole(playableRoles.get(i));
         }
         for(Player player : playerList){
-            if(player.role == Role.RESISTANCE || player.role == Role.COMMANDER)
+            if(player.role == Role.RESISTANCE || player.role == Role.COMMANDER ||player.role == Role.BODYGUARD)
                 player.setIsEvil(false);
             else
                 player.setIsEvil(true);
